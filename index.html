@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Sacramento&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -82,7 +82,7 @@
             </h1>
 
             <div class="divider divider--light" data-anim="fade" data-delay="3">
-                <div class="gem"></div>
+                <span class="leaf">✦</span>
             </div>
 
             <p class="cover-date" data-anim="up" data-delay="4">25 апреля &nbsp;·&nbsp; 2026</p>
@@ -107,7 +107,7 @@
             <h2 class="greet-name" id="guestName" data-anim="up" data-delay="2">гости</h2>
 
             <div class="divider" data-anim="fade" data-delay="3">
-                <div class="gem"></div>
+                <span class="leaf">✦</span>
             </div>
 
             <p class="greet-body" data-anim="up" data-delay="4">
@@ -135,7 +135,7 @@
             </div>
 
             <div class="divider divider--light" data-anim="fade" data-delay="3">
-                <div class="gem"></div>
+                <span class="leaf">✦</span>
             </div>
         </div>
     </section>
@@ -149,15 +149,25 @@
 
         <div class="screen-content">
             <div class="dt-wrap">
-                <div class="dt-day"    data-anim="scale" data-delay="1">25</div>
-                <div class="dt-month"  data-anim="up"    data-delay="2">апреля &nbsp;·&nbsp; 2026</div>
-
-                <div class="divider"   data-anim="fade"  data-delay="3" style="width:90px; margin-top:1rem;">
-                    <div class="gem"></div>
+                <!-- левая колонка: день + месяц -->
+                <div class="dt-left">
+                    <div class="dt-day"   data-anim="scale" data-delay="1">25</div>
+                    <div class="dt-month" data-anim="up"    data-delay="2">апреля</div>
+                    <div class="dt-year"  data-anim="up"    data-delay="3">2026</div>
                 </div>
 
-                <div class="dt-time"     data-anim="up" data-delay="4">18:00</div>
-                <div class="dt-time-lbl" data-anim="up" data-delay="5">начало торжества</div>
+                <!-- центральный разделитель -->
+                <div class="dt-center" data-anim="fade" data-delay="2">
+                    <div class="dt-sep-line"></div>
+                    <span class="dt-sep-leaf">✦</span>
+                    <div class="dt-sep-line"></div>
+                </div>
+
+                <!-- правая колонка: время -->
+                <div class="dt-right">
+                    <div class="dt-time"     data-anim="up" data-delay="4">18:00</div>
+                    <div class="dt-time-lbl" data-anim="up" data-delay="5">начало<br>торжества</div>
+                </div>
             </div>
         </div>
     </section>
@@ -177,7 +187,7 @@
             </h2>
 
             <div class="divider" data-anim="fade" data-delay="3">
-                <div class="gem"></div>
+                <span class="leaf">✦</span>
             </div>
 
             <p class="venue-addr" data-anim="up" data-delay="4">
@@ -212,7 +222,7 @@
             </p>
 
             <div class="divider divider--light" data-anim="fade" data-delay="3">
-                <div class="gem"></div>
+                <span class="leaf">✦</span>
             </div>
 
             <p class="closing-names" data-anim="up" data-delay="4">Камила &amp; Анатолий</p>
