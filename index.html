@@ -13,14 +13,32 @@
 </head>
 <body>
 
-    <!--
-        ♪ ФОНОВАЯ МУЗЫКА
-        Добавьте файл wedding-music.mp3 рядом с index.html
-        и раскомментируйте строку <source> ниже.
-    -->
-    <audio id="bgMusic" loop preload="none">
-        <!-- <source src="wedding-music.mp3" type="audio/mpeg"> -->
-    </audio>
+    <!-- ♪ ФОНОВАЯ МУЗЫКА — скрытый YouTube iframe -->
+    <iframe id="ytPlayer"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        style="position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;top:-9999px"
+        aria-hidden="true">
+    </iframe>
+
+    <!-- ЭКРАН-ЗАСТАВКА (закрывается при клике, запускает музыку) -->
+    <div id="intro" class="intro">
+        <div class="intro-content">
+            <p class="intro-label">приглашение</p>
+            <div class="intro-names">
+                Зиннура
+                <span class="intro-amp">и</span>
+                Сервер
+            </div>
+            <p class="intro-date">25 апреля 2026</p>
+            <button class="intro-btn" id="introBtn">
+                <span>Открыть приглашение</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </button>
+        </div>
+    </div>
 
     <!-- Кнопка музыки (скрывается автоматически, если нет файла) -->
     <button class="music-btn off" id="musicBtn" aria-label="Музыка" title="Музыка">
@@ -58,9 +76,9 @@
             <p class="cover-label" data-anim="up" data-delay="1">приглашение</p>
 
             <h1 class="cover-names" data-anim="up" data-delay="2">
-                Камила
+                Зиннура
                 <span class="cover-amp">и</span>
-                Анатолий
+                Сервер
             </h1>
 
             <div class="divider divider--light" data-anim="fade" data-delay="3">

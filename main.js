@@ -43,42 +43,60 @@ dots.forEach(function (dot) {
     });
 });
 
-/* ═══ МУЗЫКА ═══ */
-var audio     = document.getElementById('bgMusic');
+/* ═══ МУЗЫКА (YouTube iframe) ═══ */
+var YT_VIDEO_ID = 'ZoVcKf16Gbk';  // ← ID видео с YouTube
+
+var ytPlayer  = document.getElementById('ytPlayer');
 var musicBtn  = document.getElementById('musicBtn');
 var iconPlay  = document.getElementById('iconPlay');
 var iconPause = document.getElementById('iconPause');
 var playing   = false;
+var loaded    = false;
 
-/* Скрыть кнопку, если источник не указан */
-if (!audio.querySelector('source')) {
-    musicBtn.style.display = 'none';
+function ytCmd(func) {
+    ytPlayer.contentWindow.postMessage(
+        JSON.stringify({ event: 'command', func: func, args: [] }),
+        '*'
+    );
 }
 
-function startMusic() {
-    audio.play().then(function () {
-        playing = true;
-        musicBtn.classList.remove('off');
-        iconPlay.style.display  = 'none';
-        iconPause.style.display = '';
-    }).catch(function () {});
+function loadPlayer() {
+    if (loaded) return;
+    loaded = true;
+    ytPlayer.src = 'https://www.youtube.com/embed/' + YT_VIDEO_ID
+        + '?autoplay=1&loop=1&playlist=' + YT_VIDEO_ID
+        + '&controls=0&enablejsapi=1&origin=' + location.origin;
 }
 
-musicBtn.addEventListener('click', function () {
-    if (playing) {
-        audio.pause();
-        playing = false;
-        musicBtn.classList.add('off');
-        iconPlay.style.display  = '';
-        iconPause.style.display = 'none';
-    } else {
-        startMusic();
-    }
+function setPlaying(state) {
+    playing = state;
+    musicBtn.classList.toggle('off', !state);
+    iconPlay.style.display  = state ? 'none' : '';
+    iconPause.style.display = state ? '' : 'none';
+}
+
+/* ═══ ЗАСТАВКА ═══ */
+var intro    = document.getElementById('intro');
+var introBtn = document.getElementById('introBtn');
+
+introBtn.addEventListener('click', function () {
+    /* Запустить музыку — это явный клик пользователя, браузер разрешит */
+    loadPlayer();
+    setPlaying(true);
+
+    /* Скрыть заставку */
+    intro.classList.add('hide');
+    setTimeout(function () { intro.style.display = 'none'; }, 950);
 });
 
-/* Попытка автовоспроизведения при первом касании */
-function tryAutoplay() {
-    if (!playing && audio.querySelector('source')) startMusic();
-}
-document.addEventListener('touchstart', tryAutoplay, { once: true, passive: true });
-document.addEventListener('click',      tryAutoplay, { once: true });
+/* ═══ КНОПКА МУЗЫКИ (пауза/возобновление) ═══ */
+musicBtn.addEventListener('click', function () {
+    if (playing) {
+        ytCmd('pauseVideo');
+        setPlaying(false);
+    } else {
+        if (!loaded) loadPlayer();
+        else ytCmd('playVideo');
+        setPlaying(true);
+    }
+});

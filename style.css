@@ -1,4 +1,104 @@
 /* ═══════════════════════════════
+   INTRO SCREEN
+═══════════════════════════════ */
+.intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: var(--deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.9s ease;
+}
+
+.intro.hide {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro-content {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.intro-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.55em;
+    text-transform: uppercase;
+    color: rgba(201,169,110,0.7);
+    margin-bottom: 2rem;
+    animation: introFade 1.2s ease forwards;
+}
+
+.intro-names {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-weight: 300;
+    color: var(--ivory);
+    line-height: 1;
+    letter-spacing: 0.03em;
+    animation: introFade 1.2s 0.2s ease both;
+}
+
+.intro-amp {
+    display: block;
+    font-style: italic;
+    font-size: clamp(1.6rem, 6vw, 3rem);
+    color: var(--gold);
+    line-height: 1.5;
+}
+
+.intro-date {
+    font-size: clamp(0.72rem, 2.5vw, 0.88rem);
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: rgba(250,248,243,0.4);
+    margin-top: 1.2rem;
+    animation: introFade 1.2s 0.4s ease both;
+}
+
+.intro-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 3rem;
+    padding: 0.9rem 2.4rem;
+    border: 1px solid rgba(201,169,110,0.5);
+    background: transparent;
+    color: var(--gold);
+    font-family: 'Lato', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.3s, background 0.3s, color 0.3s;
+    animation: introFade 1.2s 0.8s ease both;
+}
+
+.intro-btn:hover,
+.intro-btn:active {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: var(--deep);
+}
+
+.intro-btn svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s;
+}
+
+.intro-btn:hover svg {
+    transform: translateX(4px);
+}
+
+@keyframes introFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════
    RESET & BASE
 ═══════════════════════════════ */
 *, *::before, *::after {
