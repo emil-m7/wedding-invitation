@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Зиннура & Сервер — 25 апреля 2026</title>
+    <title>Сервер &amp; Зиннура — 25 апреля 2026</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -21,14 +21,14 @@
         aria-hidden="true">
     </iframe>
 
-    <!-- ЭКРАН-ЗАСТАВКА (закрывается при клике, запускает музыку) -->
+    <!-- ЭКРАН-ЗАСТАВКА -->
     <div id="intro" class="intro">
         <div class="intro-content">
             <p class="intro-label">приглашение</p>
             <div class="intro-names">
-                Зиннура
-                <span class="intro-amp">и</span>
                 Сервер
+                <span class="intro-amp">и</span>
+                Зиннура
             </div>
             <p class="intro-date">25 апреля 2026</p>
             <button class="intro-btn" id="introBtn">
@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <!-- Кнопка музыки (скрывается автоматически, если нет файла) -->
+    <!-- Кнопка музыки -->
     <button class="music-btn off" id="musicBtn" aria-label="Музыка" title="Музыка">
         <svg id="iconPlay" viewBox="0 0 24 24">
             <path d="M9 18V5l12-2v13"/>
@@ -69,23 +69,101 @@
          ЭКРАН 1 — ОБЛОЖКА
     ══════════════════════════════════ -->
     <section class="screen s1" id="s0">
-        <div class="screen-bg"></div>
-        <div class="screen-overlay"></div>
+
+        <!-- Botanical corner decorations (same SVG mirrored via CSS) -->
+        <svg class="botanical corner-tl" viewBox="0 0 200 240" aria-hidden="true">
+            <circle cx="38" cy="38" r="30" fill="none" stroke="#c9a84c" stroke-width="1.8"/>
+            <circle cx="60" cy="18" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <circle cx="15" cy="62" r="20" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M0,240 Q42,160 88,100 Q132,46 192,5" fill="none" stroke="#2d4a35" stroke-width="2" stroke-linecap="round"/>
+            <g transform="translate(20,207) rotate(-58)"><ellipse rx="18" ry="7" fill="#2d4a35"/><line x1="0" y1="-7" x2="0" y2="7" stroke="#1a2e20" stroke-width="0.8"/></g>
+            <g transform="translate(40,180) rotate(-50)"><ellipse rx="21" ry="8.5" fill="#3a6b47"/><line x1="0" y1="-8" x2="0" y2="8" stroke="#1a2e20" stroke-width="0.8"/></g>
+            <g transform="translate(60,152) rotate(-42)"><ellipse rx="16" ry="6.5" fill="#2d4a35"/></g>
+            <g transform="translate(82,122) rotate(-34)"><ellipse rx="19" ry="8" fill="#3a6b47"/><line x1="0" y1="-8" x2="0" y2="8" stroke="#1a2e20" stroke-width="0.8"/></g>
+            <g transform="translate(110,90) rotate(-24)"><ellipse rx="17" ry="7" fill="#2d4a35"/></g>
+            <g transform="translate(145,56) rotate(-14)"><ellipse rx="15" ry="6" fill="#3a6b47"/></g>
+            <g transform="translate(176,28) rotate(-5)"><ellipse rx="13" ry="5.5" fill="#2d4a35"/></g>
+            <path d="M50,174 Q28,146 10,138" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="10" cy="138" r="3" fill="#e8c96a"/>
+            <circle cx="4" cy="132" r="1.8" fill="#c9a84c" opacity="0.7"/>
+            <circle cx="1" cy="125" r="1.2" fill="#c9a84c" opacity="0.4"/>
+            <path d="M70,147 Q76,120 66,93" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="66" cy="93" r="3" fill="#e8c96a"/>
+            <circle cx="61" cy="85" r="1.8" fill="#c9a84c" opacity="0.7"/>
+            <path d="M108,92 Q122,70 116,46" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="116" cy="46" r="2.5" fill="#e8c96a"/>
+            <circle cx="113" cy="38" r="1.5" fill="#c9a84c" opacity="0.6"/>
+        </svg>
+        <svg class="botanical corner-tr" viewBox="0 0 200 240" aria-hidden="true">
+            <circle cx="38" cy="38" r="30" fill="none" stroke="#c9a84c" stroke-width="1.8"/>
+            <circle cx="60" cy="18" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <circle cx="15" cy="62" r="20" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M0,240 Q42,160 88,100 Q132,46 192,5" fill="none" stroke="#2d4a35" stroke-width="2" stroke-linecap="round"/>
+            <g transform="translate(20,207) rotate(-58)"><ellipse rx="18" ry="7" fill="#2d4a35"/></g>
+            <g transform="translate(40,180) rotate(-50)"><ellipse rx="21" ry="8.5" fill="#3a6b47"/></g>
+            <g transform="translate(60,152) rotate(-42)"><ellipse rx="16" ry="6.5" fill="#2d4a35"/></g>
+            <g transform="translate(82,122) rotate(-34)"><ellipse rx="19" ry="8" fill="#3a6b47"/></g>
+            <g transform="translate(110,90) rotate(-24)"><ellipse rx="17" ry="7" fill="#2d4a35"/></g>
+            <g transform="translate(145,56) rotate(-14)"><ellipse rx="15" ry="6" fill="#3a6b47"/></g>
+            <path d="M50,174 Q28,146 10,138" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="10" cy="138" r="3" fill="#e8c96a"/>
+            <path d="M70,147 Q76,120 66,93" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="66" cy="93" r="3" fill="#e8c96a"/>
+        </svg>
+        <svg class="botanical corner-bl" viewBox="0 0 200 240" aria-hidden="true">
+            <circle cx="38" cy="38" r="30" fill="none" stroke="#c9a84c" stroke-width="1.8"/>
+            <circle cx="60" cy="18" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <circle cx="15" cy="62" r="20" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M0,240 Q42,160 88,100 Q132,46 192,5" fill="none" stroke="#2d4a35" stroke-width="2" stroke-linecap="round"/>
+            <g transform="translate(20,207) rotate(-58)"><ellipse rx="18" ry="7" fill="#2d4a35"/></g>
+            <g transform="translate(40,180) rotate(-50)"><ellipse rx="21" ry="8.5" fill="#3a6b47"/></g>
+            <g transform="translate(60,152) rotate(-42)"><ellipse rx="16" ry="6.5" fill="#2d4a35"/></g>
+            <g transform="translate(82,122) rotate(-34)"><ellipse rx="19" ry="8" fill="#3a6b47"/></g>
+            <g transform="translate(110,90) rotate(-24)"><ellipse rx="17" ry="7" fill="#2d4a35"/></g>
+            <path d="M50,174 Q28,146 10,138" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="10" cy="138" r="3" fill="#e8c96a"/>
+            <path d="M70,147 Q76,120 66,93" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="66" cy="93" r="3" fill="#e8c96a"/>
+        </svg>
+        <svg class="botanical corner-br" viewBox="0 0 200 240" aria-hidden="true">
+            <circle cx="38" cy="38" r="30" fill="none" stroke="#c9a84c" stroke-width="1.8"/>
+            <circle cx="60" cy="18" r="24" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <circle cx="15" cy="62" r="20" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+            <path d="M0,240 Q42,160 88,100 Q132,46 192,5" fill="none" stroke="#2d4a35" stroke-width="2" stroke-linecap="round"/>
+            <g transform="translate(20,207) rotate(-58)"><ellipse rx="18" ry="7" fill="#2d4a35"/></g>
+            <g transform="translate(40,180) rotate(-50)"><ellipse rx="21" ry="8.5" fill="#3a6b47"/></g>
+            <g transform="translate(60,152) rotate(-42)"><ellipse rx="16" ry="6.5" fill="#2d4a35"/></g>
+            <g transform="translate(82,122) rotate(-34)"><ellipse rx="19" ry="8" fill="#3a6b47"/></g>
+            <g transform="translate(110,90) rotate(-24)"><ellipse rx="17" ry="7" fill="#2d4a35"/></g>
+            <path d="M50,174 Q28,146 10,138" fill="none" stroke="#c9a84c" stroke-width="1" stroke-linecap="round"/>
+            <circle cx="10" cy="138" r="3" fill="#e8c96a"/>
+        </svg>
 
         <div class="screen-content">
             <p class="cover-label" data-anim="up" data-delay="1">приглашение</p>
 
-            <h1 class="cover-names" data-anim="up" data-delay="2">
-                Зиннура
-                <span class="cover-amp">и</span>
-                Сервер
+            <!-- Central medallion: gold rings + initials -->
+            <div class="medallion-wrap" data-anim="fade" data-delay="2">
+                <svg class="medallion-rings" viewBox="0 0 260 260">
+                    <circle cx="130" cy="130" r="120" fill="none" stroke="#c9a84c" stroke-width="2.5"/>
+                    <circle cx="130" cy="130" r="107" fill="none" stroke="#c9a84c" stroke-width="1.5"/>
+                </svg>
+                <div class="medallion-overlay">
+                    <span class="med-initial med-initial--s">С</span>
+                    <span class="med-amp">&amp;</span>
+                    <span class="med-initial med-initial--z">З</span>
+                </div>
+            </div>
+
+            <h1 class="cover-names" data-anim="up" data-delay="3">
+                Сервер <span class="cover-amp">&amp;</span> Зиннура
             </h1>
 
-            <div class="divider divider--light" data-anim="fade" data-delay="3">
+            <div class="divider" data-anim="fade" data-delay="4">
                 <div class="gem"></div>
             </div>
 
-            <p class="cover-date" data-anim="up" data-delay="4">25 апреля &nbsp;·&nbsp; 2026</p>
+            <p class="cover-date" data-anim="up" data-delay="5">суббота · 25 апреля · 2026</p>
         </div>
 
         <div class="scroll-cue" aria-hidden="true">
@@ -99,8 +177,6 @@
          ЭКРАН 2 — ОБРАЩЕНИЕ
     ══════════════════════════════════ -->
     <section class="screen s2" id="s1">
-        <div class="screen-bg"></div>
-
         <div class="screen-content">
             <p class="greet-pre" data-anim="down" data-delay="1">Дорогие</p>
 
@@ -123,7 +199,6 @@
          ЭКРАН 3 — СОБЫТИЕ
     ══════════════════════════════════ -->
     <section class="screen s3" id="s2">
-        <div class="screen-bg"></div>
         <div class="screen-overlay"></div>
 
         <div class="screen-content">
@@ -145,20 +220,57 @@
          ЭКРАН 4 — ДАТА И ВРЕМЯ
     ══════════════════════════════════ -->
     <section class="screen s4" id="s3">
-        <div class="screen-overlay"></div>
-
         <div class="screen-content">
-            <div class="dt-wrap">
-                <div class="dt-day"    data-anim="scale" data-delay="1">25</div>
-                <div class="dt-month"  data-anim="up"    data-delay="2">апреля &nbsp;·&nbsp; 2026</div>
 
-                <div class="divider"   data-anim="fade"  data-delay="3" style="width:90px; margin-top:1rem;">
-                    <div class="gem"></div>
+            <!-- СУББОТА — 25 — АПРЕЛЯ -->
+            <div class="date-block" data-anim="up" data-delay="1">
+                <div class="date-side">
+                    <span class="date-line"></span>
+                    <span class="date-weekday">суббота</span>
+                    <span class="date-line"></span>
                 </div>
-
-                <div class="dt-time"     data-anim="up" data-delay="4">18:00</div>
-                <div class="dt-time-lbl" data-anim="up" data-delay="5">начало торжества</div>
+                <div class="date-num">25</div>
+                <div class="date-side">
+                    <span class="date-line"></span>
+                    <span class="date-weekday">апреля</span>
+                    <span class="date-line"></span>
+                </div>
             </div>
+
+            <div class="date-year" data-anim="up" data-delay="2">2 0 2 6</div>
+
+            <div class="divider" data-anim="fade" data-delay="3" style="margin: 1rem auto;">
+                <div class="gem"></div>
+            </div>
+
+            <div class="dt-time-block" data-anim="up" data-delay="3">
+                <span class="dt-time">18:00</span>
+                <span class="dt-time-lbl">начало торжества</span>
+            </div>
+
+            <!-- Таймер обратного отсчёта -->
+            <div class="countdown" data-anim="up" data-delay="4">
+                <div class="cd-item">
+                    <span class="cd-num" id="cd-days">--</span>
+                    <span class="cd-label">дней</span>
+                </div>
+                <div class="cd-sep">·</div>
+                <div class="cd-item">
+                    <span class="cd-num" id="cd-hours">--</span>
+                    <span class="cd-label">часов</span>
+                </div>
+                <div class="cd-sep">·</div>
+                <div class="cd-item">
+                    <span class="cd-num" id="cd-minutes">--</span>
+                    <span class="cd-label">минут</span>
+                </div>
+                <div class="cd-sep">·</div>
+                <div class="cd-item">
+                    <span class="cd-num" id="cd-seconds">--</span>
+                    <span class="cd-label">секунд</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -167,27 +279,32 @@
          ЭКРАН 5 — МЕСТО
     ══════════════════════════════════ -->
     <section class="screen s5" id="s4">
-        <div class="screen-bg"></div>
-
         <div class="screen-content">
             <p class="venue-label" data-anim="down" data-delay="1">место проведения</p>
 
             <h2 class="venue-name" data-anim="up" data-delay="2">
-                Ресторан<br>«Апалон»
+                Miracle Garden
             </h2>
 
             <div class="divider" data-anim="fade" data-delay="3">
                 <div class="gem"></div>
             </div>
 
-            <p class="venue-addr" data-anim="up" data-delay="4">
-                <strong>ул. [Укажите адрес]</strong><br>
-                возле центрального парка
-            </p>
+            <div class="venue-info" data-anim="up" data-delay="4">
+                <p class="venue-row">
+                    <span class="venue-key">Ориентир:</span> обл. ГАИ
+                </p>
+                <p class="venue-row">
+                    <span class="venue-key">Сбор гостей:</span> <strong>17:30</strong>
+                </p>
+                <p class="venue-row">
+                    <span class="venue-key">Начало торжества:</span> 18:00
+                </p>
+            </div>
 
             <a class="map-btn"
                data-anim="up" data-delay="5"
-               href="https://maps.google.com/?q=Апалон+ресторан"
+               href="https://maps.google.com/?q=Miracle+Garden+Казань"
                target="_blank" rel="noopener noreferrer">
                 Построить маршрут
             </a>
@@ -199,7 +316,6 @@
          ЭКРАН 6 — ЗАВЕРШЕНИЕ
     ══════════════════════════════════ -->
     <section class="screen s6" id="s5">
-        <div class="screen-bg"></div>
         <div class="screen-overlay"></div>
 
         <div class="screen-content">
@@ -215,7 +331,7 @@
                 <div class="gem"></div>
             </div>
 
-            <p class="closing-names" data-anim="up" data-delay="4">Зиннура &amp; Сервер</p>
+            <p class="closing-names" data-anim="up" data-delay="4">Сервер &amp; Зиннура</p>
 
             <p class="closing-foot" data-anim="up" data-delay="5">25 · 04 · 2026</p>
         </div>

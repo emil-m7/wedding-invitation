@@ -43,6 +43,37 @@ dots.forEach(function (dot) {
     });
 });
 
+/* ═══ ТАЙМЕР ОБРАТНОГО ОТСЧЁТА ═══ */
+var WEDDING_DATE = new Date('2026-04-25T18:00:00');
+
+function pad(n) { return String(n).padStart(2, '0'); }
+
+function updateCountdown() {
+    var now  = new Date();
+    var diff = WEDDING_DATE - now;
+
+    if (diff <= 0) {
+        document.getElementById('cd-days').textContent    = '0';
+        document.getElementById('cd-hours').textContent   = '00';
+        document.getElementById('cd-minutes').textContent = '00';
+        document.getElementById('cd-seconds').textContent = '00';
+        return;
+    }
+
+    var days    = Math.floor(diff / 86400000);
+    var hours   = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000)  / 60000);
+    var seconds = Math.floor((diff % 60000)    / 1000);
+
+    document.getElementById('cd-days').textContent    = days;
+    document.getElementById('cd-hours').textContent   = pad(hours);
+    document.getElementById('cd-minutes').textContent = pad(minutes);
+    document.getElementById('cd-seconds').textContent = pad(seconds);
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
 /* ═══ МУЗЫКА (YouTube iframe) ═══ */
 var YT_VIDEO_ID = 'ZoVcKf16Gbk';  // ← ID видео с YouTube
 
