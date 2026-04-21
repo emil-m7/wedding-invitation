@@ -1,7 +1,24 @@
 /* ═══ ИМЯ ГОСТЯ из URL (?name=Иван+и+Мария) ═══ */
 (function () {
-    var name = new URLSearchParams(location.search).get('name');
-    if (name) document.getElementById('guestName').textContent = name;
+    var raw    = new URLSearchParams(location.search).get('name');
+    var prefix = 'Дорогой';
+    var guest  = 'гость';
+
+    if (raw) {
+        if (raw.charAt(0) == '1') {
+            prefix = 'Дорогой';
+            guest  = raw.slice(1);
+        } else if (raw.charAt(0) == '2') {
+            prefix = 'Дорогая';
+            guest  = raw.slice(1);
+        } else {
+            prefix = 'Дорогие';
+            guest  = raw;
+        }
+    }
+
+    document.querySelector('.greet-pre').textContent    = prefix;
+    document.getElementById('guestName').textContent    = guest;
 })();
 
 /* ═══ АНИМАЦИИ + НАВИГАЦИЯ (Swiper) ═══ */
@@ -44,22 +61,25 @@ var WEDDING_DATE = new Date('2026-04-25T18:00:00');
 
 function pad(n) { return String(n).padStart(2, '0'); }
 
+var countdownInterval;
+
 function updateCountdown() {
     var now  = new Date();
     var diff = WEDDING_DATE - now;
 
     if (diff <= 0) {
-        document.getElementById('cd-days').textContent    = '0';
+        document.getElementById('cd-days').textContent    = '00';
         document.getElementById('cd-hours').textContent   = '00';
         document.getElementById('cd-minutes').textContent = '00';
         document.getElementById('cd-seconds').textContent = '00';
+        clearInterval(countdownInterval);
         return;
     }
 
-    var days    = Math.floor(diff / 86400000);
-    var hours   = Math.floor((diff % 86400000) / 3600000);
-    var minutes = Math.floor((diff % 3600000)  / 60000);
-    var seconds = Math.floor((diff % 60000)    / 1000);
+    var days    = Math.max(0, Math.floor(diff / 86400000));
+    var hours   = Math.max(0, Math.floor((diff % 86400000) / 3600000));
+    var minutes = Math.max(0, Math.floor((diff % 3600000)  / 60000));
+    var seconds = Math.max(0, Math.floor((diff % 60000)    / 1000));
 
     document.getElementById('cd-days').textContent    = days;
     document.getElementById('cd-hours').textContent   = pad(hours);
@@ -68,7 +88,7 @@ function updateCountdown() {
 }
 
 updateCountdown();
-setInterval(updateCountdown, 1000);
+countdownInterval = setInterval(updateCountdown, 1000);
 
 /* ═══ МУЗЫКА (YouTube iframe) ═══ */
 var YT_VIDEO_ID = 'ZoVcKf16Gbk';  // ← ID видео с YouTube
