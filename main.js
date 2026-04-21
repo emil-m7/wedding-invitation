@@ -4,42 +4,38 @@
     if (name) document.getElementById('guestName').textContent = name;
 })();
 
-/* ═══ АНИМАЦИИ (IntersectionObserver) ═══ */
-var animItems = document.querySelectorAll('[data-anim]');
-
-var animObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-        if (e.isIntersecting) e.target.classList.add('in');
-    });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-animItems.forEach(function (el) { animObserver.observe(el); });
-
-/* Первый экран — запустить сразу, не дожидаясь скролла */
-document.querySelectorAll('#s0 [data-anim]').forEach(function (el) {
-    el.classList.add('in');
-});
-
-/* ═══ НАВИГАЦИОННЫЕ ТОЧКИ ═══ */
+/* ═══ АНИМАЦИИ + НАВИГАЦИЯ (Swiper) ═══ */
 var screens = Array.from(document.querySelectorAll('.screen'));
 var dots    = Array.from(document.querySelectorAll('.nav-dot'));
 
-var dotObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
-        if (e.isIntersecting && e.intersectionRatio >= 0.5) {
-            var i = screens.indexOf(e.target);
-            dots.forEach(function (d) { d.classList.remove('on'); });
-            if (dots[i]) dots[i].classList.add('on');
-        }
+function activateSlide(idx) {
+    var slide = screens[idx];
+    if (!slide) return;
+    slide.querySelectorAll('[data-anim]').forEach(function (el) {
+        el.classList.add('in');
     });
-}, { threshold: 0.5 });
+    dots.forEach(function (d) { d.classList.remove('on'); });
+    if (dots[idx]) dots[idx].classList.add('on');
+}
 
-screens.forEach(function (s) { dotObserver.observe(s); });
+var swiper = new Swiper('.swiper', {
+    direction: 'vertical',
+    slidesPerView: 1,
+    speed: 700,
+    resistance: true,
+    resistanceRatio: 0,
+    mousewheel: true,
+    keyboard: { enabled: true },
+    on: {
+        slideChange: function () { activateSlide(this.activeIndex); }
+    }
+});
+
+activateSlide(0);
 
 dots.forEach(function (dot) {
     dot.addEventListener('click', function () {
-        var idx = parseInt(dot.dataset.to, 10);
-        if (screens[idx]) screens[idx].scrollIntoView({ behavior: 'smooth' });
+        swiper.slideTo(parseInt(dot.dataset.to, 10));
     });
 });
 
