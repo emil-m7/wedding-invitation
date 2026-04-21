@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Сервер &amp; Зиннура — 25 апреля 2026</title>
+    
+    <style>
+        body {
+        background-color: #3D2B1F;
+        }
+    </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,10 +65,9 @@
     <nav class="nav-dots" aria-label="Навигация по экранам">
         <button class="nav-dot on"  data-to="0" aria-label="Обложка"></button>
         <button class="nav-dot"     data-to="1" aria-label="Обращение"></button>
-        <button class="nav-dot"     data-to="2" aria-label="Событие"></button>
-        <button class="nav-dot"     data-to="3" aria-label="Дата"></button>
-        <button class="nav-dot"     data-to="4" aria-label="Место"></button>
-        <button class="nav-dot"     data-to="5" aria-label="Финал"></button>
+        <button class="nav-dot"     data-to="2" aria-label="Дата"></button>
+        <button class="nav-dot"     data-to="3" aria-label="Место"></button>
+        <button class="nav-dot"     data-to="4" aria-label="Финал"></button>
     </nav>
 
     <div class="swiper"><div class="swiper-wrapper">
@@ -98,7 +103,7 @@
 
 
     <!-- ══════════════════════════════════
-         ЭКРАН 2 — ОБРАЩЕНИЕ
+         ЭКРАН 2 — ОБРАЩЕНИЕ + СОБЫТИЕ
     ══════════════════════════════════ -->
     <section class="swiper-slide screen s2" id="s1">
         <div class="screen-bg"></div>
@@ -122,31 +127,9 @@
 
 
     <!-- ══════════════════════════════════
-         ЭКРАН 3 — СОБЫТИЕ
+         ЭКРАН 3 — ДАТА И ВРЕМЯ
     ══════════════════════════════════ -->
     <section class="swiper-slide screen s3" id="s2">
-        <div class="screen-bg"></div>
-        <div class="screen-overlay"></div>
-
-        <div class="screen-content">
-            <p class="event-label" data-anim="fade" data-delay="1">вы приглашены на</p>
-
-            <div data-anim="up" data-delay="2">
-                <span class="event-word-a">Нашу</span>
-                <span class="event-word-b">свадьбу</span>
-            </div>
-
-            <div class="divider divider--light" data-anim="fade" data-delay="3">
-                <div class="gem"></div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- ══════════════════════════════════
-         ЭКРАН 4 — ДАТА И ВРЕМЯ
-    ══════════════════════════════════ -->
-    <section class="swiper-slide screen s4" id="s3">
         <div class="screen-overlay"></div>
 
         <div class="screen-content">
@@ -154,33 +137,33 @@
                 <div class="dt-day"    data-anim="scale" data-delay="1">25</div>
                 <div class="dt-month"  data-anim="up"    data-delay="2">апреля &nbsp;·&nbsp; 2026</div>
 
-                <div class="divider"   data-anim="fade"  data-delay="3" style="width:90px; margin-top:1rem;">
+                <div class="divider divider--light"   data-anim="fade"  data-delay="3" style="width:90px; margin-top:1rem;">
                     <div class="gem"></div>
                 </div>
 
-                <div class="dt-time"     data-anim="up" data-delay="4">18:00</div>
-                <div class="dt-time-lbl" data-anim="up" data-delay="5">начало торжества</div>
+                <div class="dt-time"     data-anim="up" data-delay="4">17:30</div>
+                <div class="dt-time-lbl" data-anim="up" data-delay="5">Сбор гостей</div>
 
                 <!-- Таймер обратного отсчёта -->
-                <div class="countdown" data-anim="up" data-delay="5" style="margin-top:1.5rem; display:flex; align-items:flex-end; justify-content:center; gap:0.3rem; padding:0.8rem 1rem; border:1px solid rgba(201,169,110,0.3); background:rgba(201,169,110,0.04);">
-                    <div style="display:flex;flex-direction:column;align-items:center;gap:0.15rem;min-width:44px;">
-                        <span id="cd-days"    style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,6.5vw,2.5rem);font-weight:300;color:var(--dark);line-height:1;">--</span>
-                        <span style="font-family:'Lato',sans-serif;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);">дней</span>
+                <div class="countdown" data-anim="up" data-delay="5">
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-days">--</span>
+                        <span class="cd-label">дней</span>
                     </div>
-                    <span style="font-size:1.4rem;color:var(--gold);line-height:1.8;padding-bottom:0.3rem;">·</span>
-                    <div style="display:flex;flex-direction:column;align-items:center;gap:0.15rem;min-width:44px;">
-                        <span id="cd-hours"   style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,6.5vw,2.5rem);font-weight:300;color:var(--dark);line-height:1;">--</span>
-                        <span style="font-family:'Lato',sans-serif;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);">часов</span>
+                    <span class="cd-sep">·</span>
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-hours">--</span>
+                        <span class="cd-label">часов</span>
                     </div>
-                    <span style="font-size:1.4rem;color:var(--gold);line-height:1.8;padding-bottom:0.3rem;">·</span>
-                    <div style="display:flex;flex-direction:column;align-items:center;gap:0.15rem;min-width:44px;">
-                        <span id="cd-minutes" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,6.5vw,2.5rem);font-weight:300;color:var(--dark);line-height:1;">--</span>
-                        <span style="font-family:'Lato',sans-serif;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);">минут</span>
+                    <span class="cd-sep">·</span>
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-minutes">--</span>
+                        <span class="cd-label">минут</span>
                     </div>
-                    <span style="font-size:1.4rem;color:var(--gold);line-height:1.8;padding-bottom:0.3rem;">·</span>
-                    <div style="display:flex;flex-direction:column;align-items:center;gap:0.15rem;min-width:44px;">
-                        <span id="cd-seconds" style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,6.5vw,2.5rem);font-weight:300;color:var(--dark);line-height:1;">--</span>
-                        <span style="font-family:'Lato',sans-serif;font-size:0.56rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--mid);">секунд</span>
+                    <span class="cd-sep">·</span>
+                    <div class="cd-item">
+                        <span class="cd-num" id="cd-seconds">--</span>
+                        <span class="cd-label">секунд</span>
                     </div>
                 </div>
             </div>
@@ -189,9 +172,9 @@
 
 
     <!-- ══════════════════════════════════
-         ЭКРАН 5 — МЕСТО
+         ЭКРАН 4 — МЕСТО
     ══════════════════════════════════ -->
-    <section class="swiper-slide screen s5" id="s4">
+    <section class="swiper-slide screen s4" id="s3">
         <div class="screen-bg"></div>
 
         <div class="screen-content">
@@ -206,13 +189,13 @@
             </div>
 
             <p class="venue-addr" data-anim="up" data-delay="4">
-                <strong>обл. ГАИ</strong><br>
-                Сбор гостей: 17:30 &nbsp;·&nbsp; Начало: 18:00
+                г. Самарканд, ул. Спитамена Шоха, д. 270<br>
+                <span class="venue-landmark">ориентир — обл. ГАИ</span>
             </p>
 
             <a class="map-btn"
                data-anim="up" data-delay="5"
-               href="https://maps.google.com/?q=Miracle+Garden+Казань"
+               href="https://maps.app.goo.gl/1HfK22VodfUPYYVk8"
                target="_blank" rel="noopener noreferrer">
                 Построить маршрут
             </a>
@@ -221,9 +204,9 @@
 
 
     <!-- ══════════════════════════════════
-         ЭКРАН 6 — ЗАВЕРШЕНИЕ
+         ЭКРАН 5 — ЗАВЕРШЕНИЕ
     ══════════════════════════════════ -->
-    <section class="swiper-slide screen s6" id="s5">
+    <section class="swiper-slide screen s5" id="s4">
         <div class="screen-bg"></div>
         <div class="screen-overlay"></div>
 
@@ -231,9 +214,8 @@
             <p class="closing-ornament" data-anim="fade" data-delay="1">✦ &nbsp; ✦ &nbsp; ✦</p>
 
             <p class="closing-text" data-anim="up" data-delay="2">
-                Будем бесконечно рады видеть вас<br>
-                в этот важный и особенный<br>
-                для нас день
+                С радостью приглашаем вас разделить с нами один из самых важных и счастливых дней в нашей жизни — день нашей свадьбы.<br>
+                Будем искренне рады видеть вас среди близких и дорогих гостей, чтобы вместе отпраздновать это торжественное событие.
             </p>
 
             <div class="divider divider--light" data-anim="fade" data-delay="3">
